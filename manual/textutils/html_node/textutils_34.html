@@ -1,0 +1,142 @@
+<HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on December, 28  2000 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<TITLE>GNU text utilities: cut invocation</TITLE>
+
+<META NAME="description" CONTENT="GNU text utilities: cut invocation">
+<META NAME="keywords" CONTENT="GNU text utilities: cut invocation">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+</HEAD>
+
+<BODY LANG="EN" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC34"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_33.html#SEC33"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_35.html#SEC35"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_33.html#SEC33"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_33.html#SEC33"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_37.html#SEC37"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_53.html#SEC53">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H2> 8.1 <CODE>cut</CODE>: Print selected parts of lines </H2>
+<!--docid::SEC34::-->
+<P>
+
+<A NAME="IDX390"></A>
+<CODE>cut</CODE> writes to standard output selected parts of each line of each
+input file, or standard input if no files are given or for a file name of
+<SAMP>`-'</SAMP>.  Synopsis:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>cut [<VAR>option</VAR>]<small>...</small> [<VAR>file</VAR>]<small>...</small>
+</pre></td></tr></table></P><P>
+
+In the table which follows, the <VAR>byte-list</VAR>, <VAR>character-list</VAR>,
+and <VAR>field-list</VAR> are one or more numbers or ranges (two numbers
+separated by a dash) separated by commas.  Bytes, characters, and
+fields are numbered from starting at 1.  Incomplete ranges may be
+given: <SAMP>`-<VAR>m</VAR>'</SAMP> means <SAMP>`1-<VAR>m</VAR>'</SAMP>; <SAMP>`<VAR>n</VAR>-'</SAMP> means
+<SAMP>`<VAR>n</VAR>'</SAMP> through end of line or last field.
+</P><P>
+
+The program accepts the following options.  Also see <A HREF="textutils_2.html#SEC2">2. Common options</A>.
+</P><P>
+
+<DL COMPACT>
+
+<DT><SAMP>`-b <VAR>byte-list</VAR>'</SAMP>
+<DD><DT><SAMP>`--bytes=<VAR>byte-list</VAR>'</SAMP>
+<DD><A NAME="IDX391"></A>
+<A NAME="IDX392"></A>
+Print only the bytes in positions listed in <VAR>byte-list</VAR>.  Tabs and
+backspaces are treated like any other character; they take up 1 byte.
+<P>
+
+<DT><SAMP>`-c <VAR>character-list</VAR>'</SAMP>
+<DD><DT><SAMP>`--characters=<VAR>character-list</VAR>'</SAMP>
+<DD><A NAME="IDX393"></A>
+<A NAME="IDX394"></A>
+Print only characters in positions listed in <VAR>character-list</VAR>.
+The same as <SAMP>`-b'</SAMP> for now, but internationalization will change
+that.  Tabs and backspaces are treated like any other character; they
+take up 1 character.
+<P>
+
+<DT><SAMP>`-f <VAR>field-list</VAR>'</SAMP>
+<DD><DT><SAMP>`--fields=<VAR>field-list</VAR>'</SAMP>
+<DD><A NAME="IDX395"></A>
+<A NAME="IDX396"></A>
+Print only the fields listed in <VAR>field-list</VAR>.  Fields are
+separated by a TAB character by default.
+<P>
+
+<DT><SAMP>`-d <VAR>input_delim_byte</VAR>'</SAMP>
+<DD><DT><SAMP>`--delimiter=<VAR>input_delim_byte</VAR>'</SAMP>
+<DD><A NAME="IDX397"></A>
+<A NAME="IDX398"></A>
+For <SAMP>`-f'</SAMP>, fields are separated in the input by the first character
+in <VAR>input_delim_byte</VAR> (default is TAB).
+<P>
+
+<DT><SAMP>`-n'</SAMP>
+<DD><A NAME="IDX399"></A>
+Do not split multi-byte characters (no-op for now).
+<P>
+
+<DT><SAMP>`-s'</SAMP>
+<DD><DT><SAMP>`--only-delimited'</SAMP>
+<DD><A NAME="IDX400"></A>
+<A NAME="IDX401"></A>
+For <SAMP>`-f'</SAMP>, do not print lines that do not contain the field separator
+character.
+<P>
+
+<DT><SAMP>`--output-delimiter=<VAR>output_delim_string</VAR>'</SAMP>
+<DD><A NAME="IDX402"></A>
+For <SAMP>`-f'</SAMP>, output fields are separated by <VAR>output_delim_string</VAR>
+The default is to use the input delimiter.
+<P>
+
+</DL>
+<P>
+
+<A NAME="paste invocation"></A>
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_33.html#SEC33"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_35.html#SEC35"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_33.html#SEC33"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_33.html#SEC33"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_37.html#SEC37"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_53.html#SEC53">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+by <I>Paul Visscher</I> on <I>December, 28  2000</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

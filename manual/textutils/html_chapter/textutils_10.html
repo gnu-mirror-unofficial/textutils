@@ -1,0 +1,775 @@
+<HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on December, 28  2000 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<TITLE>GNU text utilities: Opening the software toolbox</TITLE>
+
+<META NAME="description" CONTENT="GNU text utilities: Opening the software toolbox">
+<META NAME="keywords" CONTENT="GNU text utilities: Opening the software toolbox">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+</HEAD>
+
+<BODY LANG="EN" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC45"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_9.html#SEC44"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_10.html#SEC46"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_2.html#SEC2"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_11.html#SEC53">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<H1> 10. Opening the software toolbox </H1>
+<!--docid::SEC45::-->
+<P>
+
+This chapter originally appeared in <CITE>Linux Journal</CITE>, volume 1,
+number 2, in the <CITE>What's GNU?</CITE> column. It was written by Arnold
+Robbins.
+</P><P>
+
+<BLOCKQUOTE><TABLE BORDER=0 CELLSPACING=0> 
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="textutils_10.html#SEC46">Toolbox introduction</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP"></TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="textutils_10.html#SEC47">I/O redirection</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP"></TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="textutils_10.html#SEC48">The <CODE>who</CODE> command</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP"></TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="textutils_10.html#SEC49">The <CODE>cut</CODE> command</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP"></TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="textutils_10.html#SEC50">The <CODE>sort</CODE> command</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP"></TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="textutils_10.html#SEC51">The <CODE>uniq</CODE> command</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP"></TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="textutils_10.html#SEC52">Putting the tools together</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP"></TD></TR>
+</TABLE></BLOCKQUOTE>
+<P>
+
+<A NAME="Toolbox introduction"></A>
+<HR SIZE="6">
+<A NAME="SEC46"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_10.html#SEC45"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_10.html#SEC47"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_11.html#SEC53">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<H2> Toolbox introduction </H2>
+<!--docid::SEC46::-->
+<P>
+
+This month's column is only peripherally related to the GNU Project, in
+that it describes a number of the GNU tools on your Linux system and how they
+might be used.  What it's really about is the "Software Tools" philosophy
+of program development and usage.
+</P><P>
+
+The software tools philosophy was an important and integral concept
+in the initial design and development of Unix (of which Linux and GNU are
+essentially clones).  Unfortunately, in the modern day press of
+Internetworking and flashy GUIs, it seems to have fallen by the
+wayside.  This is a shame, since it provides a powerful mental model
+for solving many kinds of problems.
+</P><P>
+
+Many people carry a Swiss Army knife around in their pants pockets (or
+purse).  A Swiss Army knife is a handy tool to have: it has several knife
+blades, a screwdriver, tweezers, toothpick, nail file, corkscrew, and perhaps
+a number of other things on it.  For the everyday, small miscellaneous jobs
+where you need a simple, general purpose tool, it's just the thing.
+</P><P>
+
+On the other hand, an experienced carpenter doesn't build a house using
+a Swiss Army knife.  Instead, he has a toolbox chock full of specialized
+tools--a saw, a hammer, a screwdriver, a plane, and so on.  And he knows
+exactly when and where to use each tool; you won't catch him hammering nails
+with the handle of his screwdriver.
+</P><P>
+
+The Unix developers at Bell Labs were all professional programmers and trained
+computer scientists.  They had found that while a one-size-fits-all program
+might appeal to a user because there's only one program to use, in practice
+such programs are
+</P><P>
+
+<OL>
+<LI>
+difficult to write,
+<P>
+
+<LI>
+difficult to maintain and
+debug, and
+<P>
+
+<LI>
+difficult to extend to meet new situations.
+</OL>
+<P>
+
+Instead, they felt that programs should be specialized tools.  In short, each
+program "should do one thing well."  No more and no less.  Such programs are
+simpler to design, write, and get right--they only do one thing.
+</P><P>
+
+Furthermore, they found that with the right machinery for hooking programs
+together, that the whole was greater than the sum of the parts.  By combining
+several special purpose programs, you could accomplish a specific task
+that none of the programs was designed for, and accomplish it much more
+quickly and easily than if you had to write a special purpose program.
+We will see some (classic) examples of this further on in the column.
+(An important additional point was that, if necessary, take a detour
+and build any software tools you may need first, if you don't already
+have something appropriate in the toolbox.)
+</P><P>
+
+<A NAME="I/O redirection"></A>
+<HR SIZE="6">
+<A NAME="SEC47"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_10.html#SEC46"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_10.html#SEC48"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_11.html#SEC53">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<H2> I/O redirection </H2>
+<!--docid::SEC47::-->
+<P>
+
+Hopefully, you are familiar with the basics of I/O redirection in the
+shell, in particular the concepts of "standard input," "standard output,"
+and "standard error".  Briefly, "standard input" is a data source, where
+data comes from.  A program should not need to either know or care if the
+data source is a disk file, a keyboard, a magnetic tape, or even a punched
+card reader.  Similarly, "standard output" is a data sink, where data goes
+to.  The program should neither know nor care where this might be.
+Programs that only read their standard input, do something to the data,
+and then send it on, are called "filters", by analogy to filters in a
+water pipeline.
+</P><P>
+
+With the Unix shell, it's very easy to set up data pipelines:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>program_to_create_data | filter1 | .... | filterN &#62; final.pretty.data
+</pre></td></tr></table></P><P>
+
+We start out by creating the raw data; each filter applies some successive
+transformation to the data, until by the time it comes out of the pipeline,
+it is in the desired form.
+</P><P>
+
+This is fine and good for standard input and standard output.  Where does the
+standard error come in to play?  Well, think about <CODE>filter1</CODE> in
+the pipeline above.  What happens if it encounters an error in the data it
+sees?  If it writes an error message to standard output, it will just
+disappear down the pipeline into <CODE>filter2</CODE>'s input, and the
+user will probably never see it.  So programs need a place where they can send
+error messages so that the user will notice them.  This is standard error,
+and it is usually connected to your console or window, even if you have
+redirected standard output of your program away from your screen.
+</P><P>
+
+For filter programs to work together, the format of the data has to be
+agreed upon.  The most straightforward and easiest format to use is simply
+lines of text.  Unix data files are generally just streams of bytes, with
+lines delimited by the ASCII LF (Line Feed) character,
+conventionally called a "newline" in the Unix literature. (This is
+<CODE>'\n'</CODE> if you're a C programmer.)  This is the format used by all
+the traditional filtering programs.  (Many earlier operating systems
+had elaborate facilities and special purpose programs for managing
+binary data.  Unix has always shied away from such things, under the
+philosophy that it's easiest to simply be able to view and edit your
+data with a text editor.)
+</P><P>
+
+OK, enough introduction. Let's take a look at some of the tools, and then
+we'll see how to hook them together in interesting ways.   In the following
+discussion, we will only present those command line options that interest
+us.  As you should always do, double check your system documentation
+for the full story.
+</P><P>
+
+<A NAME="The who command"></A>
+<HR SIZE="6">
+<A NAME="SEC48"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_10.html#SEC47"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_10.html#SEC49"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_11.html#SEC53">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<H2> The <CODE>who</CODE> command </H2>
+<!--docid::SEC48::-->
+<P>
+
+The first program is the <CODE>who</CODE> command.  By itself, it generates a
+list of the users who are currently logged in.  Although I'm writing
+this on a single-user system, we'll pretend that several people are
+logged in:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>$ who
+arnold   console Jan 22 19:57
+miriam   ttyp0   Jan 23 14:19(:0.0)
+bill     ttyp1   Jan 21 09:32(:0.0)
+arnold   ttyp2   Jan 23 20:48(:0.0)
+</pre></td></tr></table></P><P>
+
+Here, the <SAMP>`$'</SAMP> is the usual shell prompt, at which I typed <CODE>who</CODE>.
+There are three people logged in, and I am logged in twice.  On traditional
+Unix systems, user names are never more than eight characters long.  This
+little bit of trivia will be useful later.  The output of <CODE>who</CODE> is nice,
+but the data is not all that exciting.
+</P><P>
+
+<A NAME="The cut command"></A>
+<HR SIZE="6">
+<A NAME="SEC49"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_10.html#SEC48"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_10.html#SEC50"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_11.html#SEC53">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<H2> The <CODE>cut</CODE> command </H2>
+<!--docid::SEC49::-->
+<P>
+
+The next program we'll look at is the <CODE>cut</CODE> command.  This program
+cuts out columns or fields of input data.  For example, we can tell it
+to print just the login name and full name from the <TT>`/etc/passwd
+file'</TT>.  The <TT>`/etc/passwd'</TT> file has seven fields, separated by
+colons:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>arnold:xyzzy:2076:10:Arnold D. Robbins:/home/arnold:/bin/ksh
+</pre></td></tr></table></P><P>
+
+To get the first and fifth fields, we would use cut like this:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>$ cut -d: -f1,5 /etc/passwd
+root:Operator
+<small>...</small>
+arnold:Arnold D. Robbins
+miriam:Miriam A. Robbins
+<small>...</small>
+</pre></td></tr></table></P><P>
+
+With the <SAMP>`-c'</SAMP> option, <CODE>cut</CODE> will cut out specific characters
+(i.e., columns) in the input lines.  This command looks like it might be
+useful for data filtering.
+</P><P>
+
+<A NAME="The sort command"></A>
+<HR SIZE="6">
+<A NAME="SEC50"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_10.html#SEC49"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_10.html#SEC51"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_11.html#SEC53">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<H2> The <CODE>sort</CODE> command </H2>
+<!--docid::SEC50::-->
+<P>
+
+Next we'll look at the <CODE>sort</CODE> command.  This is one of the most
+powerful commands on a Unix-style system; one that you will often find
+yourself using when setting up fancy data plumbing. The <CODE>sort</CODE>
+command reads and sorts each file named on the command line.  It then
+merges the sorted data and writes it to standard output.  It will read
+standard input if no files are given on the command line (thus
+making it into a filter).  The sort is based on the character collating
+sequence or based on user-supplied ordering criteria.
+</P><P>
+
+<A NAME="The uniq command"></A>
+<HR SIZE="6">
+<A NAME="SEC51"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_10.html#SEC50"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_10.html#SEC52"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_11.html#SEC53">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<H2> The <CODE>uniq</CODE> command </H2>
+<!--docid::SEC51::-->
+<P>
+
+Finally (at least for now), we'll look at the <CODE>uniq</CODE> program.  When
+sorting data, you will often end up with duplicate lines, lines that
+are identical.  Usually, all you need is one instance of each line.
+This is where <CODE>uniq</CODE> comes in. The <CODE>uniq</CODE> program reads its
+standard input, which it expects to be sorted.  It only prints out one
+copy of each duplicated line.  It does have several options.  Later on,
+we'll use the <SAMP>`-c'</SAMP> option, which prints each unique line, preceded
+by a count of the number of times that line occurred in the input.
+</P><P>
+
+<A NAME="Putting the tools together"></A>
+<HR SIZE="6">
+<A NAME="SEC52"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_10.html#SEC51"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_11.html#SEC53"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_11.html#SEC53">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<H2> Putting the tools together </H2>
+<!--docid::SEC52::-->
+<P>
+
+Now, let's suppose this is a large BBS system with dozens of users
+logged in.  The management wants the SysOp to write a program that will
+generate a sorted list of logged in users.  Furthermore, even if a user
+is logged in multiple times, his or her name should only show up in the
+output once.
+</P><P>
+
+The SysOp could sit down with the system documentation and write a C
+program that did this. It would take perhaps a couple of hundred lines
+of code and about two hours to write it, test it, and debug it.
+However, knowing the software toolbox, the SysOp can instead start out
+by generating just a list of logged on users:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>$ who | cut -c1-8
+arnold
+miriam
+bill
+arnold
+</pre></td></tr></table></P><P>
+
+Next, sort the list:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>$ who | cut -c1-8 | sort
+arnold
+arnold
+bill
+miriam
+</pre></td></tr></table></P><P>
+
+Finally, run the sorted list through <CODE>uniq</CODE>, to weed out duplicates:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>$ who | cut -c1-8 | sort | uniq
+arnold
+bill
+miriam
+</pre></td></tr></table></P><P>
+
+The <CODE>sort</CODE> command actually has a <SAMP>`-u'</SAMP> option that does what
+<CODE>uniq</CODE> does. However, <CODE>uniq</CODE> has other uses for which one
+cannot substitute <SAMP>`sort -u'</SAMP>.
+</P><P>
+
+The SysOp puts this pipeline into a shell script, and makes it available for
+all the users on the system:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre># cat &#62; /usr/local/bin/listusers
+who | cut -c1-8 | sort | uniq
+^D
+# chmod +x /usr/local/bin/listusers
+</pre></td></tr></table></P><P>
+
+There are four major points to note here.  First, with just four
+programs, on one command line, the SysOp was able to save about two
+hours worth of work.  Furthermore, the shell pipeline is just about as
+efficient as the C program would be, and it is much more efficient in
+terms of programmer time.  People time is much more expensive than
+computer time, and in our modern "there's never enough time to do
+everything" society, saving two hours of programmer time is no mean
+feat.
+</P><P>
+
+Second, it is also important to emphasize that with the
+<EM>combination</EM> of the tools, it is possible to do a special
+purpose job never imagined by the authors of the individual programs.
+</P><P>
+
+Third, it is also valuable to build up your pipeline in stages, as we did here.
+This allows you to view the data at each stage in the pipeline, which helps
+you acquire the confidence that you are indeed using these tools correctly.
+</P><P>
+
+Finally, by bundling the pipeline in a shell script, other users can use
+your command, without having to remember the fancy plumbing you set up for
+them. In terms of how you run them, shell scripts and compiled programs are
+indistinguishable.
+</P><P>
+
+After the previous warm-up exercise, we'll look at two additional, more
+complicated pipelines.  For them, we need to introduce two more tools.
+</P><P>
+
+The first is the <CODE>tr</CODE> command, which stands for "transliterate."
+The <CODE>tr</CODE> command works on a character-by-character basis, changing
+characters. Normally it is used for things like mapping upper case to
+lower case:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>$ echo ThIs ExAmPlE HaS MIXED case! | tr '[A-Z]' '[a-z]'
+this example has mixed case!
+</pre></td></tr></table></P><P>
+
+There are several options of interest:
+</P><P>
+
+<DL COMPACT>
+<DT><SAMP>`-c'</SAMP>
+<DD>work on the complement of the listed characters, i.e.,
+operations apply to characters not in the given set
+<P>
+
+<DT><SAMP>`-d'</SAMP>
+<DD>delete characters in the first set from the output
+<P>
+
+<DT><SAMP>`-s'</SAMP>
+<DD>squeeze repeated characters in the output into just one character.
+</DL>
+<P>
+
+We will be using all three options in a moment.
+</P><P>
+
+The other command we'll look at is <CODE>comm</CODE>.  The <CODE>comm</CODE>
+command takes two sorted input files as input data, and prints out the
+files' lines in three columns.  The output columns are the data lines
+unique to the first file, the data lines unique to the second file, and
+the data lines that are common to both.  The <SAMP>`-1'</SAMP>, <SAMP>`-2'</SAMP>, and
+<SAMP>`-3'</SAMP> command line options omit the respective columns. (This is
+non-intuitive and takes a little getting used to.)  For example:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>$ cat f1
+11111
+22222
+33333
+44444
+$ cat f2
+00000
+22222
+33333
+55555
+$ comm f1 f2
+        00000
+11111
+                22222
+                33333
+44444
+        55555
+</pre></td></tr></table></P><P>
+
+The single dash as a filename tells <CODE>comm</CODE> to read standard input
+instead of a regular file.
+</P><P>
+
+Now we're ready to build a fancy pipeline.  The first application is a word
+frequency counter.  This helps an author determine if he or she is over-using
+certain words.
+</P><P>
+
+The first step is to change the case of all the letters in our input file
+to one case.  "The" and "the" are the same word when doing counting.
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>$ tr '[A-Z]' '[a-z]' &#60; whats.gnu | ...
+</pre></td></tr></table></P><P>
+
+The next step is to get rid of punctuation.  Quoted words and unquoted words
+should be treated identically; it's easiest to just get the punctuation out of
+the way.
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>$ tr '[A-Z]' '[a-z]' &#60; whats.gnu | tr -cd '[A-Za-z0-9_ \012]' | ...
+</pre></td></tr></table></P><P>
+
+The second <CODE>tr</CODE> command operates on the complement of the listed
+characters, which are all the letters, the digits, the underscore, and
+the blank.  The <SAMP>`\012'</SAMP> represents the newline character; it has to
+be left alone.  (The ASCII tab character should also be included for
+good measure in a production script.)
+</P><P>
+
+At this point, we have data consisting of words separated by blank space.
+The words only contain alphanumeric characters (and the underscore).  The
+next step is break the data apart so that we have one word per line. This
+makes the counting operation much easier, as we will see shortly.
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>$ tr '[A-Z]' '[a-z]' &#60; whats.gnu | tr -cd '[A-Za-z0-9_ \012]' |
+&#62; tr -s '[ ]' '\012' | ...
+</pre></td></tr></table></P><P>
+
+This command turns blanks into newlines.  The <SAMP>`-s'</SAMP> option squeezes
+multiple newline characters in the output into just one.  This helps us
+avoid blank lines. (The <SAMP>`&#62;'</SAMP> is the shell's "secondary prompt."
+This is what the shell prints when it notices you haven't finished
+typing in all of a command.)
+</P><P>
+
+We now have data consisting of one word per line, no punctuation, all one
+case.  We're ready to count each word:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>$ tr '[A-Z]' '[a-z]' &#60; whats.gnu | tr -cd '[A-Za-z0-9_ \012]' |
+&#62; tr -s '[ ]' '\012' | sort | uniq -c | ...
+</pre></td></tr></table></P><P>
+
+At this point, the data might look something like this:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>  60 a
+   2 able
+   6 about
+   1 above
+   2 accomplish
+   1 acquire
+   1 actually
+   2 additional
+</pre></td></tr></table></P><P>
+
+The output is sorted by word, not by count!  What we want is the most
+frequently used words first.  Fortunately, this is easy to accomplish,
+with the help of two more <CODE>sort</CODE> options:
+</P><P>
+
+<DL COMPACT>
+<DT><SAMP>`-n'</SAMP>
+<DD>do a numeric sort, not a textual one
+<P>
+
+<DT><SAMP>`-r'</SAMP>
+<DD>reverse the order of the sort
+</DL>
+<P>
+
+The final pipeline looks like this:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>$ tr '[A-Z]' '[a-z]' &#60; whats.gnu | tr -cd '[A-Za-z0-9_ \012]' |
+&#62; tr -s '[ ]' '\012' | sort | uniq -c | sort -nr
+ 156 the
+  60 a
+  58 to
+  51 of
+  51 and
+ ...
+</pre></td></tr></table></P><P>
+
+Whew!  That's a lot to digest.  Yet, the same principles apply. With six
+commands, on two lines (really one long one split for convenience), we've
+created a program that does something interesting and useful, in much
+less time than we could have written a C program to do the same thing.
+</P><P>
+
+A minor modification to the above pipeline can give us a simple spelling
+checker!  To determine if you've spelled a word correctly, all you have to
+do is look it up in a dictionary.  If it is not there, then chances are
+that your spelling is incorrect.  So, we need a dictionary.  If you
+have the Slackware Linux distribution, you have the file
+<TT>`/usr/lib/ispell/ispell.words'</TT>, which is a sorted, 38,400 word
+dictionary.
+</P><P>
+
+Now, how to compare our file with the dictionary?  As before, we generate
+a sorted list of words, one per line:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>$ tr '[A-Z]' '[a-z]' &#60; whats.gnu | tr -cd '[A-Za-z0-9_ \012]' |
+&#62; tr -s '[ ]' '\012' | sort -u | ...
+</pre></td></tr></table></P><P>
+
+Now, all we need is a list of words that are <EM>not</EM> in the
+dictionary.  Here is where the <CODE>comm</CODE> command comes in.
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>$ tr '[A-Z]' '[a-z]' &#60; whats.gnu | tr -cd '[A-Za-z0-9_ \012]' |
+&#62; tr -s '[ ]' '\012' | sort -u |
+&#62; comm -23 - /usr/lib/ispell/ispell.words
+</pre></td></tr></table></P><P>
+
+The <SAMP>`-2'</SAMP> and <SAMP>`-3'</SAMP> options eliminate lines that are only in the
+dictionary (the second file), and lines that are in both files.  Lines
+only in the first file (standard input, our stream of words), are
+words that are not in the dictionary.  These are likely candidates for
+spelling errors.  This pipeline was the first cut at a production
+spelling checker on Unix.
+</P><P>
+
+There are some other tools that deserve brief mention.
+</P><P>
+
+<DL COMPACT>
+<DT><CODE>grep</CODE>
+<DD>search files for text that matches a regular expression
+<P>
+
+<DT><CODE>egrep</CODE>
+<DD>like <CODE>grep</CODE>, but with more powerful regular expressions
+<P>
+
+<DT><CODE>wc</CODE>
+<DD>count lines, words, characters
+<P>
+
+<DT><CODE>tee</CODE>
+<DD>a T-fitting for data pipes, copies data to files and to standard output
+<P>
+
+<DT><CODE>sed</CODE>
+<DD>the stream editor, an advanced tool
+<P>
+
+<DT><CODE>awk</CODE>
+<DD>a data manipulation language, another advanced tool
+</DL>
+<P>
+
+The software tools philosophy also espoused the following bit of
+advice: "Let someone else do the hard part." This means, take
+something that gives you most of what you need, and then massage it the
+rest of the way until it's in the form that you want.
+</P><P>
+
+To summarize:
+</P><P>
+
+<OL>
+<LI>
+Each program should do one thing well. No more, no less.
+<P>
+
+<LI>
+Combining programs with appropriate plumbing leads to results where
+the whole is greater than the sum of the parts.  It also leads to novel
+uses of programs that the authors might never have imagined.
+<P>
+
+<LI>
+Programs should never print extraneous header or trailer data, since these
+could get sent on down a pipeline. (A point we didn't mention earlier.)
+<P>
+
+<LI>
+Let someone else do the hard part.
+<P>
+
+<LI>
+Know your toolbox! Use each program appropriately. If you don't have an
+appropriate tool, build one.
+</OL>
+<P>
+
+As of this writing, all the programs we've discussed are available via
+anonymous <CODE>ftp</CODE> from <CODE>prep.ai.mit.edu</CODE> as
+<TT>`/pub/gnu/textutils-1.9.tar.gz'</TT>.<A NAME="DOCF1" HREF="textutils_fot.html#FOOT1">(1)</A>
+</P><P>
+
+None of what I have presented in this column is new. The Software Tools
+philosophy was first introduced in the book <CITE>Software Tools</CITE>,
+by Brian Kernighan and P.J. Plauger (Addison-Wesley, ISBN
+0-201-03669-X).   This book showed how to write and use software
+tools.   It was written in 1976, using a preprocessor for FORTRAN named
+<CODE>ratfor</CODE> (RATional FORtran).  At the time, C was not as ubiquitous
+as it is now; FORTRAN was.  The last chapter presented a <CODE>ratfor</CODE>
+to FORTRAN processor, written in <CODE>ratfor</CODE>. <CODE>ratfor</CODE> looks an
+awful lot like C; if you know C, you won't have any problem following
+the code.
+</P><P>
+
+In 1981, the book was updated and made available as <CITE>Software
+Tools in Pascal</CITE> (Addison-Wesley, ISBN 0-201-10342-7).  Both books
+remain in print, and are well worth reading if you're a programmer.
+They certainly made a major change in how I view programming.
+</P><P>
+
+Initially, the programs in both books were available (on 9-track tape)
+from Addison-Wesley.  Unfortunately, this is no longer the case,
+although you might be able to find copies floating around the Internet.
+For a number of years, there was an active Software Tools Users Group,
+whose members had ported the original <CODE>ratfor</CODE> programs to essentially
+every computer system with a FORTRAN compiler.  The popularity of the
+group waned in the middle '80s as Unix began to spread beyond universities.
+</P><P>
+
+With the current proliferation of GNU code and other clones of Unix programs,
+these programs now receive little attention; modern C versions are
+much more efficient and do more than these programs do.  Nevertheless, as
+exposition of good programming style, and evangelism for a still-valuable
+philosophy, these books are unparalleled, and I recommend them highly.
+</P><P>
+
+Acknowledgment: I would like to express my gratitude to Brian Kernighan
+of Bell Labs, the original Software Toolsmith, for reviewing this column.
+</P><P>
+
+<A NAME="Index"></A>
+<HR SIZE="6">
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_11.html#SEC53">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+by <I>Paul Visscher</I> on <I>December, 28  2000</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

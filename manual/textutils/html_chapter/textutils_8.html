@@ -1,0 +1,355 @@
+<HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on December, 28  2000 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<TITLE>GNU text utilities: Operating on fields within a line</TITLE>
+
+<META NAME="description" CONTENT="GNU text utilities: Operating on fields within a line">
+<META NAME="keywords" CONTENT="GNU text utilities: Operating on fields within a line">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+</HEAD>
+
+<BODY LANG="EN" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC33"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_7.html#SEC32"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_8.html#SEC34"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_9.html#SEC37"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_9.html#SEC37"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_11.html#SEC53">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<H1> 8. Operating on fields within a line </H1>
+<!--docid::SEC33::-->
+<P>
+
+<BLOCKQUOTE><TABLE BORDER=0 CELLSPACING=0> 
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="textutils_8.html#SEC34">8.1 <CODE>cut</CODE>: Print selected parts of lines</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Print selected parts of lines.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="textutils_8.html#SEC35">8.2 <CODE>paste</CODE>: Merge lines of files</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Merge lines of files.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="textutils_8.html#SEC36">8.3 <CODE>join</CODE>: Join lines on a common field</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Join lines on a common field.</TD></TR>
+</TABLE></BLOCKQUOTE>
+<P>
+
+<A NAME="cut invocation"></A>
+<HR SIZE="6">
+<A NAME="SEC34"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_8.html#SEC33"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_8.html#SEC35"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_8.html#SEC33"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_8.html#SEC33"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_9.html#SEC37"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_11.html#SEC53">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<H2> 8.1 <CODE>cut</CODE>: Print selected parts of lines </H2>
+<!--docid::SEC34::-->
+<P>
+
+<A NAME="IDX390"></A>
+<CODE>cut</CODE> writes to standard output selected parts of each line of each
+input file, or standard input if no files are given or for a file name of
+<SAMP>`-'</SAMP>.  Synopsis:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>cut [<VAR>option</VAR>]<small>...</small> [<VAR>file</VAR>]<small>...</small>
+</pre></td></tr></table></P><P>
+
+In the table which follows, the <VAR>byte-list</VAR>, <VAR>character-list</VAR>,
+and <VAR>field-list</VAR> are one or more numbers or ranges (two numbers
+separated by a dash) separated by commas.  Bytes, characters, and
+fields are numbered from starting at 1.  Incomplete ranges may be
+given: <SAMP>`-<VAR>m</VAR>'</SAMP> means <SAMP>`1-<VAR>m</VAR>'</SAMP>; <SAMP>`<VAR>n</VAR>-'</SAMP> means
+<SAMP>`<VAR>n</VAR>'</SAMP> through end of line or last field.
+</P><P>
+
+The program accepts the following options.  Also see <A HREF="textutils_2.html#SEC2">2. Common options</A>.
+</P><P>
+
+<DL COMPACT>
+
+<DT><SAMP>`-b <VAR>byte-list</VAR>'</SAMP>
+<DD><DT><SAMP>`--bytes=<VAR>byte-list</VAR>'</SAMP>
+<DD><A NAME="IDX391"></A>
+<A NAME="IDX392"></A>
+Print only the bytes in positions listed in <VAR>byte-list</VAR>.  Tabs and
+backspaces are treated like any other character; they take up 1 byte.
+<P>
+
+<DT><SAMP>`-c <VAR>character-list</VAR>'</SAMP>
+<DD><DT><SAMP>`--characters=<VAR>character-list</VAR>'</SAMP>
+<DD><A NAME="IDX393"></A>
+<A NAME="IDX394"></A>
+Print only characters in positions listed in <VAR>character-list</VAR>.
+The same as <SAMP>`-b'</SAMP> for now, but internationalization will change
+that.  Tabs and backspaces are treated like any other character; they
+take up 1 character.
+<P>
+
+<DT><SAMP>`-f <VAR>field-list</VAR>'</SAMP>
+<DD><DT><SAMP>`--fields=<VAR>field-list</VAR>'</SAMP>
+<DD><A NAME="IDX395"></A>
+<A NAME="IDX396"></A>
+Print only the fields listed in <VAR>field-list</VAR>.  Fields are
+separated by a TAB character by default.
+<P>
+
+<DT><SAMP>`-d <VAR>input_delim_byte</VAR>'</SAMP>
+<DD><DT><SAMP>`--delimiter=<VAR>input_delim_byte</VAR>'</SAMP>
+<DD><A NAME="IDX397"></A>
+<A NAME="IDX398"></A>
+For <SAMP>`-f'</SAMP>, fields are separated in the input by the first character
+in <VAR>input_delim_byte</VAR> (default is TAB).
+<P>
+
+<DT><SAMP>`-n'</SAMP>
+<DD><A NAME="IDX399"></A>
+Do not split multi-byte characters (no-op for now).
+<P>
+
+<DT><SAMP>`-s'</SAMP>
+<DD><DT><SAMP>`--only-delimited'</SAMP>
+<DD><A NAME="IDX400"></A>
+<A NAME="IDX401"></A>
+For <SAMP>`-f'</SAMP>, do not print lines that do not contain the field separator
+character.
+<P>
+
+<DT><SAMP>`--output-delimiter=<VAR>output_delim_string</VAR>'</SAMP>
+<DD><A NAME="IDX402"></A>
+For <SAMP>`-f'</SAMP>, output fields are separated by <VAR>output_delim_string</VAR>
+The default is to use the input delimiter.
+<P>
+
+</DL>
+<P>
+
+<A NAME="paste invocation"></A>
+<HR SIZE="6">
+<A NAME="SEC35"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_8.html#SEC34"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_8.html#SEC36"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_8.html#SEC36"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_8.html#SEC33"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_9.html#SEC37"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_11.html#SEC53">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<H2> 8.2 <CODE>paste</CODE>: Merge lines of files </H2>
+<!--docid::SEC35::-->
+<P>
+
+<A NAME="IDX403"></A>
+<A NAME="IDX404"></A>
+</P><P>
+
+<CODE>paste</CODE> writes to standard output lines consisting of sequentially
+corresponding lines of each given file, separated by a TAB character.
+Standard input is used for a file name of <SAMP>`-'</SAMP> or if no input files
+are given.
+</P><P>
+
+Synopsis:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>paste [<VAR>option</VAR>]<small>...</small> [<VAR>file</VAR>]<small>...</small>
+</pre></td></tr></table></P><P>
+
+The program accepts the following options.  Also see <A HREF="textutils_2.html#SEC2">2. Common options</A>.
+</P><P>
+
+<DL COMPACT>
+
+<DT><SAMP>`-s'</SAMP>
+<DD><DT><SAMP>`--serial'</SAMP>
+<DD><A NAME="IDX405"></A>
+<A NAME="IDX406"></A>
+Paste the lines of one file at a time rather than one line from each
+file.
+<P>
+
+<DT><SAMP>`-d <VAR>delim-list</VAR>'</SAMP>
+<DD><DT><SAMP>`--delimiters <VAR>delim-list</VAR>'</SAMP>
+<DD><A NAME="IDX407"></A>
+<A NAME="IDX408"></A>
+Consecutively use the characters in <VAR>delim-list</VAR> instead of
+TAB to separate merged lines.  When <VAR>delim-list</VAR> is
+exhausted, start again at its beginning.
+<P>
+
+</DL>
+<P>
+
+<A NAME="join invocation"></A>
+<HR SIZE="6">
+<A NAME="SEC36"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_8.html#SEC35"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_9.html#SEC37"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_8.html#SEC33"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_8.html#SEC33"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_9.html#SEC37"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_11.html#SEC53">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<H2> 8.3 <CODE>join</CODE>: Join lines on a common field </H2>
+<!--docid::SEC36::-->
+<P>
+
+<A NAME="IDX409"></A>
+<A NAME="IDX410"></A>
+</P><P>
+
+<CODE>join</CODE> writes to standard output a line for each pair of input
+lines that have identical join fields.  Synopsis:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>join [<VAR>option</VAR>]<small>...</small> <VAR>file1</VAR> <VAR>file2</VAR>
+</pre></td></tr></table></P><P>
+
+<A NAME="IDX411"></A>
+Either <VAR>file1</VAR> or <VAR>file2</VAR> (but not both) can be <SAMP>`-'</SAMP>,
+meaning standard input.  <VAR>file1</VAR> and <VAR>file2</VAR> should be already
+sorted in increasing textual order on the join fields, using the
+collating sequence specified by the <CODE>LC_COLLATE</CODE> locale.  Unless
+the <SAMP>`-t'</SAMP> option is given, the input should be sorted ignoring blanks at
+the start of the join field, as in <CODE>sort -b</CODE>.  If the
+<SAMP>`--ignore-case'</SAMP> option is given, lines should be sorted without
+regard to the case of characters in the join field, as in <CODE>sort -f</CODE>.
+</P><P>
+
+The defaults are: the join field is the first field in each line;
+fields in the input are separated by one or more blanks, with leading
+blanks on the line ignored; fields in the output are separated by a
+space; each output line consists of the join field, the remaining
+fields from <VAR>file1</VAR>, then the remaining fields from <VAR>file2</VAR>.
+</P><P>
+
+The program accepts the following options.  Also see <A HREF="textutils_2.html#SEC2">2. Common options</A>.
+</P><P>
+
+<DL COMPACT>
+
+<DT><SAMP>`-a <VAR>file-number</VAR>'</SAMP>
+<DD><A NAME="IDX412"></A>
+Print a line for each unpairable line in file <VAR>file-number</VAR> (either
+<SAMP>`1'</SAMP> or <SAMP>`2'</SAMP>), in addition to the normal output.
+<P>
+
+<DT><SAMP>`-e <VAR>string</VAR>'</SAMP>
+<DD><A NAME="IDX413"></A>
+Replace those output fields that are missing in the input with
+<VAR>string</VAR>.
+<P>
+
+<DT><SAMP>`-i'</SAMP>
+<DD><DT><SAMP>`--ignore-case'</SAMP>
+<DD><A NAME="IDX414"></A>
+<A NAME="IDX415"></A>
+Ignore differences in case when comparing keys.
+With this option, the lines of the input files must be ordered in the same way.
+Use <SAMP>`sort -f'</SAMP> to produce this ordering.
+<P>
+
+<DT><SAMP>`-1 <VAR>field</VAR>'</SAMP>
+<DD><DT><SAMP>`-j1 <VAR>field</VAR>'</SAMP>
+<DD><A NAME="IDX416"></A>
+<A NAME="IDX417"></A>
+Join on field <VAR>field</VAR> (a positive integer) of file 1.
+<P>
+
+<DT><SAMP>`-2 <VAR>field</VAR>'</SAMP>
+<DD><DT><SAMP>`-j2 <VAR>field</VAR>'</SAMP>
+<DD><A NAME="IDX418"></A>
+<A NAME="IDX419"></A>
+Join on field <VAR>field</VAR> (a positive integer) of file 2.
+<P>
+
+<DT><SAMP>`-j <VAR>field</VAR>'</SAMP>
+<DD>Equivalent to <SAMP>`-1 <VAR>field</VAR> -2 <VAR>field</VAR>'</SAMP>.
+<P>
+
+<DT><SAMP>`-o <VAR>field-list</VAR><small>...</small>'</SAMP>
+<DD>Construct each output line according to the format in <VAR>field-list</VAR>.
+Each element in <VAR>field-list</VAR> is either the single character <SAMP>`0'</SAMP> or
+has the form <VAR>m.n</VAR> where the file number, <VAR>m</VAR>, is <SAMP>`1'</SAMP> or
+<SAMP>`2'</SAMP> and <VAR>n</VAR> is a positive field number.
+<P>
+
+A field specification of <SAMP>`0'</SAMP> denotes the join field.
+In most cases, the functionality of the <SAMP>`0'</SAMP> field spec
+may be reproduced using the explicit <VAR>m.n</VAR> that corresponds
+to the join field.  However, when printing unpairable lines
+(using either of the <SAMP>`-a'</SAMP> or <SAMP>`-v'</SAMP> options), there is no way
+to specify the join field using <VAR>m.n</VAR> in <VAR>field-list</VAR>
+if there are unpairable lines in both files.
+To give <CODE>join</CODE> that functionality, POSIX invented the <SAMP>`0'</SAMP>
+field specification notation.
+</P><P>
+
+The elements in <VAR>field-list</VAR>
+are separated by commas or blanks.  Multiple <VAR>field-list</VAR>
+arguments can be given after a single <SAMP>`-o'</SAMP> option; the values
+of all lists given with <SAMP>`-o'</SAMP> are concatenated together.
+All output lines -- including those printed because of any -a or -v
+option -- are subject to the specified <VAR>field-list</VAR>.
+</P><P>
+
+<DT><SAMP>`-t <VAR>char</VAR>'</SAMP>
+<DD>Use character <VAR>char</VAR> as the input and output field separator.
+<P>
+
+<DT><SAMP>`-v <VAR>file-number</VAR>'</SAMP>
+<DD>Print a line for each unpairable line in file <VAR>file-number</VAR>
+(either <SAMP>`1'</SAMP> or <SAMP>`2'</SAMP>), instead of the normal output.
+<P>
+
+</DL>
+<P>
+
+In addition, when GNU <CODE>join</CODE> is invoked with exactly one argument,
+options <SAMP>`--help'</SAMP> and <SAMP>`--version'</SAMP> are recognized.  See section <A HREF="textutils_2.html#SEC2">2. Common options</A>.
+</P><P>
+
+<A NAME="Operating on characters"></A>
+<HR SIZE="6">
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_8.html#SEC33"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_9.html#SEC37"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_11.html#SEC53">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+by <I>Paul Visscher</I> on <I>December, 28  2000</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

@@ -1,0 +1,165 @@
+<HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on December, 28  2000 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<TITLE>GNU text utilities: md5sum invocation</TITLE>
+
+<META NAME="description" CONTENT="GNU text utilities: md5sum invocation">
+<META NAME="keywords" CONTENT="GNU text utilities: md5sum invocation">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+</HEAD>
+
+<BODY LANG="EN" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC21"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_20.html#SEC20"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_22.html#SEC22"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_17.html#SEC17"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_17.html#SEC17"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_22.html#SEC22"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_53.html#SEC53">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H2> 6.4 <CODE>md5sum</CODE>: Print or check message-digests </H2>
+<!--docid::SEC21::-->
+<P>
+
+<A NAME="IDX299"></A>
+<A NAME="IDX300"></A>
+<A NAME="IDX301"></A>
+<A NAME="IDX302"></A>
+<A NAME="IDX303"></A>
+</P><P>
+
+<CODE>md5sum</CODE> computes a 128-bit checksum (or <EM>fingerprint</EM> or
+<EM>message-digest</EM>) for each specified <VAR>file</VAR>.
+If a <VAR>file</VAR> is specified as <SAMP>`-'</SAMP> or if no files are given
+<CODE>md5sum</CODE> computes the checksum for the standard input.
+<CODE>md5sum</CODE> can also determine whether a file and checksum are
+consistent. Synopses:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>md5sum [<VAR>option</VAR>]<small>...</small> [<VAR>file</VAR>]<small>...</small>
+md5sum [<VAR>option</VAR>]<small>...</small> --check [<VAR>file</VAR>]
+</pre></td></tr></table></P><P>
+
+For each <VAR>file</VAR>, <SAMP>`md5sum'</SAMP> outputs the MD5 checksum, a flag
+indicating a binary or text input file, and the filename.
+If <VAR>file</VAR> is omitted or specified as <SAMP>`-'</SAMP>, standard input is read.
+</P><P>
+
+The program accepts the following options.  Also see <A HREF="textutils_2.html#SEC2">2. Common options</A>.
+</P><P>
+
+<DL COMPACT>
+
+<DT><SAMP>`-b'</SAMP>
+<DD><DT><SAMP>`--binary'</SAMP>
+<DD><A NAME="IDX304"></A>
+<A NAME="IDX305"></A>
+<A NAME="IDX306"></A>
+Treat all input files as binary.  This option has no effect on Unix
+systems, since they don't distinguish between binary and text files.
+This option is useful on systems that have different internal and
+external character representations.  On MS-DOS and MS-Windows, this is
+the default.
+<P>
+
+<DT><SAMP>`-c'</SAMP>
+<DD><DT><SAMP>`--check'</SAMP>
+<DD>Read filenames and checksum information from the single <VAR>file</VAR>
+(or from stdin if no <VAR>file</VAR> was specified) and report whether
+each named file and the corresponding checksum data are consistent.
+The input to this mode of <CODE>md5sum</CODE> is usually the output of
+a prior, checksum-generating run of <SAMP>`md5sum'</SAMP>.
+Each valid line of input consists of an MD5 checksum, a binary/text
+flag, and then a filename.
+Binary files are marked with <SAMP>`*'</SAMP>, text with <SAMP>` '</SAMP>.
+For each such line, <CODE>md5sum</CODE> reads the named file and computes its
+MD5 checksum.  Then, if the computed message digest does not match the
+one on the line with the filename, the file is noted as having
+failed the test.  Otherwise, the file passes the test.
+By default, for each valid line, one line is written to standard
+output indicating whether the named file passed the test.
+After all checks have been performed, if there were any failures,
+a warning is issued to standard error.
+Use the <SAMP>`--status'</SAMP> option to inhibit that output.
+If any listed file cannot be opened or read, if any valid line has
+an MD5 checksum inconsistent with the associated file, or if no valid
+line is found, <CODE>md5sum</CODE> exits with nonzero status.  Otherwise,
+it exits successfully.
+<P>
+
+<DT><SAMP>`--status'</SAMP>
+<DD><A NAME="IDX307"></A>
+<A NAME="IDX308"></A>
+This option is useful only when verifying checksums.
+When verifying checksums, don't generate the default one-line-per-file
+diagnostic and don't output the warning summarizing any failures.
+Failures to open or read a file still evoke individual diagnostics to
+standard error.
+If all listed files are readable and are consistent with the associated
+MD5 checksums, exit successfully.  Otherwise exit with a status code
+indicating there was a failure.
+<P>
+
+<DT><SAMP>`-t'</SAMP>
+<DD><DT><SAMP>`--text'</SAMP>
+<DD><A NAME="IDX309"></A>
+<A NAME="IDX310"></A>
+<A NAME="IDX311"></A>
+Treat all input files as text files.  This is the reverse of
+<SAMP>`--binary'</SAMP>.
+<P>
+
+<DT><SAMP>`-w'</SAMP>
+<DD><DT><SAMP>`--warn'</SAMP>
+<DD><A NAME="IDX312"></A>
+<A NAME="IDX313"></A>
+<A NAME="IDX314"></A>
+When verifying checksums, warn about improperly formatted MD5 checksum lines.
+This option is useful only if all but a few lines in the checked input
+are valid.
+<P>
+
+</DL>
+<P>
+
+<A NAME="Operating on sorted files"></A>
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_20.html#SEC20"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_22.html#SEC22"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_17.html#SEC17"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_17.html#SEC17"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_22.html#SEC22"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_53.html#SEC53">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+by <I>Paul Visscher</I> on <I>December, 28  2000</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

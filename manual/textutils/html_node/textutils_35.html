@@ -1,0 +1,94 @@
+<HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on December, 28  2000 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<TITLE>GNU text utilities: paste invocation</TITLE>
+
+<META NAME="description" CONTENT="GNU text utilities: paste invocation">
+<META NAME="keywords" CONTENT="GNU text utilities: paste invocation">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+</HEAD>
+
+<BODY LANG="EN" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC35"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_34.html#SEC34"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_36.html#SEC36"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_36.html#SEC36"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_33.html#SEC33"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_37.html#SEC37"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_53.html#SEC53">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H2> 8.2 <CODE>paste</CODE>: Merge lines of files </H2>
+<!--docid::SEC35::-->
+<P>
+
+<A NAME="IDX403"></A>
+<A NAME="IDX404"></A>
+</P><P>
+
+<CODE>paste</CODE> writes to standard output lines consisting of sequentially
+corresponding lines of each given file, separated by a TAB character.
+Standard input is used for a file name of <SAMP>`-'</SAMP> or if no input files
+are given.
+</P><P>
+
+Synopsis:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>paste [<VAR>option</VAR>]<small>...</small> [<VAR>file</VAR>]<small>...</small>
+</pre></td></tr></table></P><P>
+
+The program accepts the following options.  Also see <A HREF="textutils_2.html#SEC2">2. Common options</A>.
+</P><P>
+
+<DL COMPACT>
+
+<DT><SAMP>`-s'</SAMP>
+<DD><DT><SAMP>`--serial'</SAMP>
+<DD><A NAME="IDX405"></A>
+<A NAME="IDX406"></A>
+Paste the lines of one file at a time rather than one line from each
+file.
+<P>
+
+<DT><SAMP>`-d <VAR>delim-list</VAR>'</SAMP>
+<DD><DT><SAMP>`--delimiters <VAR>delim-list</VAR>'</SAMP>
+<DD><A NAME="IDX407"></A>
+<A NAME="IDX408"></A>
+Consecutively use the characters in <VAR>delim-list</VAR> instead of
+TAB to separate merged lines.  When <VAR>delim-list</VAR> is
+exhausted, start again at its beginning.
+<P>
+
+</DL>
+<P>
+
+<A NAME="join invocation"></A>
+<HR SIZE=1>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+by <I>Paul Visscher</I> on <I>December, 28  2000</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

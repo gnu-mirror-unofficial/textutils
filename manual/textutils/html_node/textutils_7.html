@@ -1,0 +1,329 @@
+<HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on December, 28  2000 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<TITLE>GNU text utilities: od invocation</TITLE>
+
+<META NAME="description" CONTENT="GNU text utilities: od invocation">
+<META NAME="keywords" CONTENT="GNU text utilities: od invocation">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+</HEAD>
+
+<BODY LANG="EN" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC7"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_6.html#SEC6"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_8.html#SEC8"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_3.html#SEC3"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_3.html#SEC3"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_8.html#SEC8"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_53.html#SEC53">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H2> 3.4 <CODE>od</CODE>: Write files in octal or other formats </H2>
+<!--docid::SEC7::-->
+<P>
+
+<A NAME="IDX80"></A>
+<A NAME="IDX81"></A>
+<A NAME="IDX82"></A>
+<A NAME="IDX83"></A>
+<A NAME="IDX84"></A>
+</P><P>
+
+<CODE>od</CODE> writes an unambiguous representation of each <VAR>file</VAR>
+(<SAMP>`-'</SAMP> means standard input), or standard input if none are given.
+Synopsis:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>od [<VAR>option</VAR>]<small>...</small> [<VAR>file</VAR>]<small>...</small>
+od -C [<VAR>file</VAR>] [[+]<VAR>offset</VAR> [[+]<VAR>label</VAR>]]
+</pre></td></tr></table></P><P>
+
+Each line of output consists of the offset in the input, followed by
+groups of data from the file. By default, <CODE>od</CODE> prints the offset in
+octal, and each group of file data is two bytes of input printed as a
+single octal number.
+</P><P>
+
+The program accepts the following options.  Also see <A HREF="textutils_2.html#SEC2">2. Common options</A>.
+</P><P>
+
+<DL COMPACT>
+
+<DT><SAMP>`-A <VAR>radix</VAR>'</SAMP>
+<DD><DT><SAMP>`--address-radix=<VAR>radix</VAR>'</SAMP>
+<DD><A NAME="IDX85"></A>
+<A NAME="IDX86"></A>
+<A NAME="IDX87"></A>
+<A NAME="IDX88"></A>
+Select the base in which file offsets are printed.  <VAR>radix</VAR> can
+be one of the following:
+<P>
+
+<DL COMPACT>
+<DT><SAMP>`d'</SAMP>
+<DD>decimal;
+<DT><SAMP>`o'</SAMP>
+<DD>octal;
+<DT><SAMP>`x'</SAMP>
+<DD>hexadecimal;
+<DT><SAMP>`n'</SAMP>
+<DD>none (do not print offsets).
+</DL>
+<P>
+
+The default is octal.
+</P><P>
+
+<DT><SAMP>`-j <VAR>bytes</VAR>'</SAMP>
+<DD><DT><SAMP>`--skip-bytes=<VAR>bytes</VAR>'</SAMP>
+<DD><A NAME="IDX89"></A>
+<A NAME="IDX90"></A>
+Skip <VAR>bytes</VAR> input bytes before formatting and writing.  If
+<VAR>bytes</VAR> begins with <SAMP>`0x'</SAMP> or <SAMP>`0X'</SAMP>, it is interpreted in
+hexadecimal; otherwise, if it begins with <SAMP>`0'</SAMP>, in octal; otherwise,
+in decimal.  Appending <SAMP>`b'</SAMP> multiplies <VAR>bytes</VAR> by 512, <SAMP>`k'</SAMP>
+by 1024, and <SAMP>`m'</SAMP> by 1048576.
+<P>
+
+<DT><SAMP>`-N <VAR>bytes</VAR>'</SAMP>
+<DD><DT><SAMP>`--read-bytes=<VAR>bytes</VAR>'</SAMP>
+<DD><A NAME="IDX91"></A>
+<A NAME="IDX92"></A>
+Output at most <VAR>bytes</VAR> bytes of the input.  Prefixes and suffixes on
+<CODE>bytes</CODE> are interpreted as for the <SAMP>`-j'</SAMP> option.
+<P>
+
+<DT><SAMP>`-s [<VAR>n</VAR>]'</SAMP>
+<DD><DT><SAMP>`--strings[=<VAR>n</VAR>]'</SAMP>
+<DD><A NAME="IDX93"></A>
+<A NAME="IDX94"></A>
+<A NAME="IDX95"></A>
+Instead of the normal output, output only <EM>string constants</EM>: at
+least <VAR>n</VAR> (3 by default) consecutive ASCII graphic characters,
+followed by a null (zero) byte.
+<P>
+
+<DT><SAMP>`-t <VAR>type</VAR>'</SAMP>
+<DD><DT><SAMP>`--format=<VAR>type</VAR>'</SAMP>
+<DD><A NAME="IDX96"></A>
+<A NAME="IDX97"></A>
+Select the format in which to output the file data.  <VAR>type</VAR> is a
+string of one or more of the below type indicator characters.  If you
+include more than one type indicator character in a single <VAR>type</VAR>
+string, or use this option more than once, <CODE>od</CODE> writes one copy
+of each output line using each of the data types that you specified,
+in the order that you specified.
+<P>
+
+Adding a trailing "z" to any type specification appends a display
+of the ASCII character representation of the printable characters
+to the output line generated by the type specification.
+</P><P>
+
+<DL COMPACT>
+<DT><SAMP>`a'</SAMP>
+<DD>named character,
+<DT><SAMP>`c'</SAMP>
+<DD>ASCII character or backslash escape,
+<DT><SAMP>`d'</SAMP>
+<DD>signed decimal,
+<DT><SAMP>`f'</SAMP>
+<DD>floating point,
+<DT><SAMP>`o'</SAMP>
+<DD>octal,
+<DT><SAMP>`u'</SAMP>
+<DD>unsigned decimal,
+<DT><SAMP>`x'</SAMP>
+<DD>hexadecimal.
+</DL>
+<P>
+
+The type <CODE>a</CODE> outputs things like <SAMP>`sp'</SAMP> for space, <SAMP>`nl'</SAMP> for
+newline, and <SAMP>`nul'</SAMP> for a null (zero) byte.  Type <CODE>c</CODE> outputs
+<SAMP>` '</SAMP>, <SAMP>`\n'</SAMP>, and <CODE>\0</CODE>, respectively.
+</P><P>
+
+<A NAME="IDX98"></A>
+Except for types <SAMP>`a'</SAMP> and <SAMP>`c'</SAMP>, you can specify the number
+of bytes to use in interpreting each number in the given data type
+by following the type indicator character with a decimal integer.
+Alternately, you can specify the size of one of the C compiler's
+built-in data types by following the type indicator character with
+one of the following characters.  For integers (<SAMP>`d'</SAMP>, <SAMP>`o'</SAMP>,
+<SAMP>`u'</SAMP>, <SAMP>`x'</SAMP>):
+</P><P>
+
+<DL COMPACT>
+<DT><SAMP>`C'</SAMP>
+<DD>char,
+<DT><SAMP>`S'</SAMP>
+<DD>short,
+<DT><SAMP>`I'</SAMP>
+<DD>int,
+<DT><SAMP>`L'</SAMP>
+<DD>long.
+</DL>
+<P>
+
+For floating point (<CODE>f</CODE>):
+</P><P>
+
+<DL COMPACT>
+<DT>F
+<DD>float,
+<DT>D
+<DD>double,
+<DT>L
+<DD>long double.
+</DL>
+<P>
+
+<DT><SAMP>`-v'</SAMP>
+<DD><DT><SAMP>`--output-duplicates'</SAMP>
+<DD><A NAME="IDX99"></A>
+<A NAME="IDX100"></A>
+Output consecutive lines that are identical.  By default, when two or
+more consecutive output lines would be identical, <CODE>od</CODE> outputs only
+the first line, and puts just an asterisk on the following line to
+indicate the elision.
+<P>
+
+<DT><SAMP>`-w[<VAR>n</VAR>]'</SAMP>
+<DD><DT><SAMP>`--width[=<VAR>n</VAR>]'</SAMP>
+<DD><A NAME="IDX101"></A>
+<A NAME="IDX102"></A>
+Dump <CODE>n</CODE> input bytes per output line.  This must be a multiple of
+the least common multiple of the sizes associated with the specified
+output types.  If <VAR>n</VAR> is omitted, the default is 32.  If this option
+is not given at all, the default is 16.
+<P>
+
+</DL>
+<P>
+
+The next several options map the old, pre-POSIX format specification
+options to the corresponding POSIX format specs.  GNU <CODE>od</CODE> accepts
+any combination of old- and new-style options.  Format specification
+options accumulate.
+</P><P>
+
+<DL COMPACT>
+
+<DT><SAMP>`-a'</SAMP>
+<DD><A NAME="IDX103"></A>
+Output as named characters.  Equivalent to <SAMP>`-ta'</SAMP>.
+<P>
+
+<DT><SAMP>`-b'</SAMP>
+<DD><A NAME="IDX104"></A>
+Output as octal bytes.  Equivalent to <SAMP>`-toC'</SAMP>.
+<P>
+
+<DT><SAMP>`-c'</SAMP>
+<DD><A NAME="IDX105"></A>
+Output as ASCII characters or backslash escapes.  Equivalent to
+<SAMP>`-tc'</SAMP>.
+<P>
+
+<DT><SAMP>`-d'</SAMP>
+<DD><A NAME="IDX106"></A>
+Output as unsigned decimal shorts.  Equivalent to <SAMP>`-tu2'</SAMP>.
+<P>
+
+<DT><SAMP>`-f'</SAMP>
+<DD><A NAME="IDX107"></A>
+Output as floats.  Equivalent to <SAMP>`-tfF'</SAMP>.
+<P>
+
+<DT><SAMP>`-h'</SAMP>
+<DD><A NAME="IDX108"></A>
+Output as hexadecimal shorts.  Equivalent to <SAMP>`-tx2'</SAMP>.
+<P>
+
+<DT><SAMP>`-i'</SAMP>
+<DD><A NAME="IDX109"></A>
+Output as decimal shorts.  Equivalent to <SAMP>`-td2'</SAMP>.
+<P>
+
+<DT><SAMP>`-l'</SAMP>
+<DD><A NAME="IDX110"></A>
+Output as decimal longs.  Equivalent to <SAMP>`-td4'</SAMP>.
+<P>
+
+<DT><SAMP>`-o'</SAMP>
+<DD><A NAME="IDX111"></A>
+Output as octal shorts.  Equivalent to <SAMP>`-to2'</SAMP>.
+<P>
+
+<DT><SAMP>`-x'</SAMP>
+<DD><A NAME="IDX112"></A>
+Output as hexadecimal shorts.  Equivalent to <SAMP>`-tx2'</SAMP>.
+<P>
+
+<DT><SAMP>`-C'</SAMP>
+<DD><DT><SAMP>`--traditional'</SAMP>
+<DD><A NAME="IDX113"></A>
+Recognize the pre-POSIX non-option arguments that traditional <CODE>od</CODE>
+accepted.  The following syntax:
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>od --traditional [<VAR>file</VAR>] [[+]<VAR>offset</VAR>[.][b] [[+]<VAR>label</VAR>[.][b]]]
+</pre></td></tr></table></P><P>
+
+can be used to specify at most one file and optional arguments
+specifying an offset and a pseudo-start address, <VAR>label</VAR>.  By
+default, <VAR>offset</VAR> is interpreted as an octal number specifying how
+many input bytes to skip before formatting and writing.  The optional
+trailing decimal point forces the interpretation of <VAR>offset</VAR> as a
+decimal number.  If no decimal is specified and the offset begins with
+<SAMP>`0x'</SAMP> or <SAMP>`0X'</SAMP> it is interpreted as a hexadecimal number.  If
+there is a trailing <SAMP>`b'</SAMP>, the number of bytes skipped will be
+<VAR>offset</VAR> multiplied by 512.  The <VAR>label</VAR> argument is interpreted
+just like <VAR>offset</VAR>, but it specifies an initial pseudo-address.  The
+pseudo-addresses are displayed in parentheses following any normal
+address.
+</P><P>
+
+</DL>
+<P>
+
+<A NAME="Formatting file contents"></A>
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_6.html#SEC6"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_8.html#SEC8"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_3.html#SEC3"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_3.html#SEC3"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_8.html#SEC8"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_53.html#SEC53">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+by <I>Paul Visscher</I> on <I>December, 28  2000</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

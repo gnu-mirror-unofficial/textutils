@@ -1,0 +1,79 @@
+<HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on December, 28  2000 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<TITLE>GNU text utilities: The cut command</TITLE>
+
+<META NAME="description" CONTENT="GNU text utilities: The cut command">
+<META NAME="keywords" CONTENT="GNU text utilities: The cut command">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+</HEAD>
+
+<BODY LANG="EN" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC49"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_48.html#SEC48"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_50.html#SEC50"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_53.html#SEC53">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H2> The <CODE>cut</CODE> command </H2>
+<!--docid::SEC49::-->
+<P>
+
+The next program we'll look at is the <CODE>cut</CODE> command.  This program
+cuts out columns or fields of input data.  For example, we can tell it
+to print just the login name and full name from the <TT>`/etc/passwd
+file'</TT>.  The <TT>`/etc/passwd'</TT> file has seven fields, separated by
+colons:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>arnold:xyzzy:2076:10:Arnold D. Robbins:/home/arnold:/bin/ksh
+</pre></td></tr></table></P><P>
+
+To get the first and fifth fields, we would use cut like this:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>$ cut -d: -f1,5 /etc/passwd
+root:Operator
+<small>...</small>
+arnold:Arnold D. Robbins
+miriam:Miriam A. Robbins
+<small>...</small>
+</pre></td></tr></table></P><P>
+
+With the <SAMP>`-c'</SAMP> option, <CODE>cut</CODE> will cut out specific characters
+(i.e., columns) in the input lines.  This command looks like it might be
+useful for data filtering.
+</P><P>
+
+<A NAME="The sort command"></A>
+<HR SIZE=1>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+by <I>Paul Visscher</I> on <I>December, 28  2000</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

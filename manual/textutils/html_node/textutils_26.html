@@ -1,0 +1,103 @@
+<HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on December, 28  2000 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<TITLE>GNU text utilities: tsort invocation</TITLE>
+
+<META NAME="description" CONTENT="GNU text utilities: tsort invocation">
+<META NAME="keywords" CONTENT="GNU text utilities: tsort invocation">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+</HEAD>
+
+<BODY LANG="EN" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC26"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_25.html#SEC25"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_27.html#SEC27"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_27.html#SEC27"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_22.html#SEC22"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_33.html#SEC33"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_53.html#SEC53">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H2> 7.4 <CODE>tsort</CODE>: Topological sort </H2>
+<!--docid::SEC26::-->
+<P>
+
+<A NAME="IDX387"></A>
+<A NAME="IDX388"></A>
+</P><P>
+
+<CODE>tsort</CODE> performs a topological sort on the given <VAR>file</VAR>, or
+standard input if no input file is given or for a <VAR>file</VAR> of
+<SAMP>`-'</SAMP>.  Synopsis:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>tsort [<VAR>option</VAR>] [<VAR>file</VAR>]
+</pre></td></tr></table></P><P>
+
+<CODE>tsort</CODE> reads its input as pairs of strings, separated by blanks,
+indicating a partial ordering.  The output is a total ordering that
+corresponds to the given partial ordering.
+</P><P>
+
+For example
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>tsort &#60;&#60;EOF
+a b c
+d
+e f
+b c d e
+EOF
+</pre></td></tr></table></P><P>
+
+will produce the output
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>a
+b
+c
+d
+e
+f
+</pre></td></tr></table></P><P>
+
+<CODE>tsort</CODE> will detect cycles in the input and writes the first cycle
+encountered to standard error.
+</P><P>
+
+Note that for a given partial ordering, generally there is no unique
+total ordering.
+</P><P>
+
+The only options are <SAMP>`--help'</SAMP> and <SAMP>`--version'</SAMP>.  See section <A HREF="textutils_2.html#SEC2">2. Common options</A>.
+</P><P>
+
+<A NAME="ptx invocation"></A>
+<HR SIZE=1>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+by <I>Paul Visscher</I> on <I>December, 28  2000</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

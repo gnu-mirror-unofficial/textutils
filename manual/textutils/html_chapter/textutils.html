@@ -1,0 +1,195 @@
+<HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on December, 28  2000 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<TITLE>GNU text utilities: GNU text utilities</TITLE>
+
+<META NAME="description" CONTENT="GNU text utilities: GNU text utilities">
+<META NAME="keywords" CONTENT="GNU text utilities: GNU text utilities">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+</HEAD>
+
+<BODY LANG="EN" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC_Top"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_11.html#SEC53">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<H1>GNU text utilities</H1></P><P>
+
+<A NAME="IDX1"></A>
+<A NAME="IDX2"></A>
+</P><P>
+
+This manual documents version 2.0 of the GNU text utilities.
+</P><P>
+
+<BLOCKQUOTE><TABLE BORDER=0 CELLSPACING=0> 
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="textutils_1.html#SEC1">1. Introduction</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Caveats, overview, and authors.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="textutils_2.html#SEC2">2. Common options</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP"></TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="textutils_3.html#SEC3">3. Output of entire files</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">cat tac nl od</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="textutils_4.html#SEC8">4. Formatting file contents</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">fmt pr fold</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="textutils_5.html#SEC12">5. Output of parts of files</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">head tail split csplit</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="textutils_6.html#SEC17">6. Summarizing files</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">wc sum cksum md5sum</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="textutils_7.html#SEC22">7. Operating on sorted files</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">sort uniq comm ptx tsort</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="textutils_8.html#SEC33">8. Operating on fields within a line</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">cut paste join</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="textutils_9.html#SEC37">9. Operating on characters</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">tr expand unexpand</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="textutils_10.html#SEC45">10. Opening the software toolbox</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">The software tools philosophy.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="textutils_11.html#SEC53">Index</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">General index.</TD></TR>
+</TABLE>
+
+<br>
+&nbsp;--&nbsp;The&nbsp;Detailed&nbsp;Node&nbsp;Listing&nbsp;---
+<br>
+
+<br>
+Output&nbsp;of&nbsp;entire&nbsp;files
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="textutils_3.html#SEC4">3.1 <CODE>cat</CODE>: Concatenate and write files</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Concatenate and write files.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="textutils_3.html#SEC5">3.2 <CODE>tac</CODE>: Concatenate and write files in reverse</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Concatenate and write files in reverse.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="textutils_3.html#SEC6">3.3 <CODE>nl</CODE>: Number lines and write files</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Number lines and write files.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="textutils_3.html#SEC7">3.4 <CODE>od</CODE>: Write files in octal or other formats</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Write files in octal or other formats.</TD></TR>
+</TABLE>
+
+<br>
+Formatting&nbsp;file&nbsp;contents
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="textutils_4.html#SEC9">4.1 <CODE>fmt</CODE>: Reformat paragraph text</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Reformat paragraph text.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="textutils_4.html#SEC10">4.2 <CODE>pr</CODE>: Paginate or columnate files for printing</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Paginate or columnate files for printing.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="textutils_4.html#SEC11">4.3 <CODE>fold</CODE>: Wrap input lines to fit in specified width</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Wrap input lines to fit in specified width.</TD></TR>
+</TABLE>
+
+<br>
+Output&nbsp;of&nbsp;parts&nbsp;of&nbsp;files
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="textutils_5.html#SEC13">5.1 <CODE>head</CODE>: Output the first part of files</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Output the first part of files.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="textutils_5.html#SEC14">5.2 <CODE>tail</CODE>: Output the last part of files</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Output the last part of files.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="textutils_5.html#SEC15">5.3 <CODE>split</CODE>: Split a file into fixed-size pieces</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Split a file into fixed-size pieces.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="textutils_5.html#SEC16">5.4 <CODE>csplit</CODE>: Split a file into context-determined pieces</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Split a file into context-determined pieces.</TD></TR>
+</TABLE>
+
+<br>
+Summarizing&nbsp;files
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="textutils_6.html#SEC18">6.1 <CODE>wc</CODE>: Print byte, word, and line counts</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Print byte, word, and line counts.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="textutils_6.html#SEC19">6.2 <CODE>sum</CODE>: Print checksum and block counts</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Print checksum and block counts.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="textutils_6.html#SEC20">6.3 <CODE>cksum</CODE>: Print CRC checksum and byte counts</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Print CRC checksum and byte counts.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="textutils_6.html#SEC21">6.4 <CODE>md5sum</CODE>: Print or check message-digests</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Print or check message-digests.</TD></TR>
+</TABLE>
+
+<br>
+Operating&nbsp;on&nbsp;sorted&nbsp;files
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="textutils_7.html#SEC23">7.1 <CODE>sort</CODE>: Sort text files</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Sort text files.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="textutils_7.html#SEC24">7.2 <CODE>uniq</CODE>: Uniquify files</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Uniquify files.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="textutils_7.html#SEC25">7.3 <CODE>comm</CODE>: Compare two sorted files line by line</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Compare two sorted files line by line.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="textutils_7.html#SEC27">7.5 <CODE>ptx</CODE>: Produce permuted indexes</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Produce a permuted index of file contents.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="textutils_7.html#SEC26">7.4 <CODE>tsort</CODE>: Topological sort</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Topological sort.</TD></TR>
+</TABLE>
+
+<br>
+<CODE>ptx</CODE>:&nbsp;Produce&nbsp;permuted&nbsp;indexes
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="textutils_7.html#SEC28">7.5.1 General options</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Options which affect general program behavior.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="textutils_7.html#SEC29">7.5.2 Charset selection</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Underlying character set considerations.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="textutils_7.html#SEC30">7.5.3 Word selection and input processing</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Input fields, contexts, and keyword selection.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="textutils_7.html#SEC31">7.5.4 Output formatting</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Types of output format, and sizing the fields.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="textutils_7.html#SEC32">7.5.5 The GNU extensions to <CODE>ptx</CODE></A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP"></TD></TR>
+</TABLE>
+
+<br>
+Operating&nbsp;on&nbsp;fields&nbsp;within&nbsp;a&nbsp;line
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="textutils_8.html#SEC34">8.1 <CODE>cut</CODE>: Print selected parts of lines</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Print selected parts of lines.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="textutils_8.html#SEC35">8.2 <CODE>paste</CODE>: Merge lines of files</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Merge lines of files.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="textutils_8.html#SEC36">8.3 <CODE>join</CODE>: Join lines on a common field</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Join lines on a common field.</TD></TR>
+</TABLE>
+
+<br>
+Operating&nbsp;on&nbsp;characters
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="textutils_9.html#SEC38">9.1 <CODE>tr</CODE>: Translate, squeeze, and/or delete characters</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Translate, squeeze, and/or delete characters.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="textutils_9.html#SEC43">9.2 <CODE>expand</CODE>: Convert tabs to spaces</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Convert tabs to spaces.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="textutils_9.html#SEC44">9.3 <CODE>unexpand</CODE>: Convert spaces to tabs</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Convert spaces to tabs.</TD></TR>
+</TABLE>
+
+<br>
+<CODE>tr</CODE>:&nbsp;Translate,&nbsp;squeeze,&nbsp;and/or&nbsp;delete&nbsp;characters
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="textutils_9.html#SEC39">9.1.1 Specifying sets of characters</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP"></TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="textutils_9.html#SEC40">9.1.2 Translating</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Changing one characters to another.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="textutils_9.html#SEC41">9.1.3 Squeezing repeats and deleting</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP"></TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="textutils_9.html#SEC42">9.1.4 Warning messages</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP"></TD></TR>
+</TABLE>
+
+<br>
+Opening&nbsp;the&nbsp;software&nbsp;toolbox
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="textutils_10.html#SEC46">Toolbox introduction</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP"></TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="textutils_10.html#SEC47">I/O redirection</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP"></TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="textutils_10.html#SEC48">The <CODE>who</CODE> command</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP"></TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="textutils_10.html#SEC49">The <CODE>cut</CODE> command</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP"></TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="textutils_10.html#SEC50">The <CODE>sort</CODE> command</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP"></TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="textutils_10.html#SEC51">The <CODE>uniq</CODE> command</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP"></TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="textutils_10.html#SEC52">Putting the tools together</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP"></TD></TR>
+</TABLE>
+
+<br>
+</BLOCKQUOTE>
+<P>
+
+<HR SIZE=1>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+by <I>Paul Visscher</I> on <I>December, 28  2000</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

@@ -1,0 +1,179 @@
+<HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on December, 28  2000 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<TITLE>GNU text utilities: join invocation</TITLE>
+
+<META NAME="description" CONTENT="GNU text utilities: join invocation">
+<META NAME="keywords" CONTENT="GNU text utilities: join invocation">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+</HEAD>
+
+<BODY LANG="EN" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC36"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_35.html#SEC35"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_37.html#SEC37"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_33.html#SEC33"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_33.html#SEC33"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_37.html#SEC37"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_53.html#SEC53">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H2> 8.3 <CODE>join</CODE>: Join lines on a common field </H2>
+<!--docid::SEC36::-->
+<P>
+
+<A NAME="IDX409"></A>
+<A NAME="IDX410"></A>
+</P><P>
+
+<CODE>join</CODE> writes to standard output a line for each pair of input
+lines that have identical join fields.  Synopsis:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>join [<VAR>option</VAR>]<small>...</small> <VAR>file1</VAR> <VAR>file2</VAR>
+</pre></td></tr></table></P><P>
+
+<A NAME="IDX411"></A>
+Either <VAR>file1</VAR> or <VAR>file2</VAR> (but not both) can be <SAMP>`-'</SAMP>,
+meaning standard input.  <VAR>file1</VAR> and <VAR>file2</VAR> should be already
+sorted in increasing textual order on the join fields, using the
+collating sequence specified by the <CODE>LC_COLLATE</CODE> locale.  Unless
+the <SAMP>`-t'</SAMP> option is given, the input should be sorted ignoring blanks at
+the start of the join field, as in <CODE>sort -b</CODE>.  If the
+<SAMP>`--ignore-case'</SAMP> option is given, lines should be sorted without
+regard to the case of characters in the join field, as in <CODE>sort -f</CODE>.
+</P><P>
+
+The defaults are: the join field is the first field in each line;
+fields in the input are separated by one or more blanks, with leading
+blanks on the line ignored; fields in the output are separated by a
+space; each output line consists of the join field, the remaining
+fields from <VAR>file1</VAR>, then the remaining fields from <VAR>file2</VAR>.
+</P><P>
+
+The program accepts the following options.  Also see <A HREF="textutils_2.html#SEC2">2. Common options</A>.
+</P><P>
+
+<DL COMPACT>
+
+<DT><SAMP>`-a <VAR>file-number</VAR>'</SAMP>
+<DD><A NAME="IDX412"></A>
+Print a line for each unpairable line in file <VAR>file-number</VAR> (either
+<SAMP>`1'</SAMP> or <SAMP>`2'</SAMP>), in addition to the normal output.
+<P>
+
+<DT><SAMP>`-e <VAR>string</VAR>'</SAMP>
+<DD><A NAME="IDX413"></A>
+Replace those output fields that are missing in the input with
+<VAR>string</VAR>.
+<P>
+
+<DT><SAMP>`-i'</SAMP>
+<DD><DT><SAMP>`--ignore-case'</SAMP>
+<DD><A NAME="IDX414"></A>
+<A NAME="IDX415"></A>
+Ignore differences in case when comparing keys.
+With this option, the lines of the input files must be ordered in the same way.
+Use <SAMP>`sort -f'</SAMP> to produce this ordering.
+<P>
+
+<DT><SAMP>`-1 <VAR>field</VAR>'</SAMP>
+<DD><DT><SAMP>`-j1 <VAR>field</VAR>'</SAMP>
+<DD><A NAME="IDX416"></A>
+<A NAME="IDX417"></A>
+Join on field <VAR>field</VAR> (a positive integer) of file 1.
+<P>
+
+<DT><SAMP>`-2 <VAR>field</VAR>'</SAMP>
+<DD><DT><SAMP>`-j2 <VAR>field</VAR>'</SAMP>
+<DD><A NAME="IDX418"></A>
+<A NAME="IDX419"></A>
+Join on field <VAR>field</VAR> (a positive integer) of file 2.
+<P>
+
+<DT><SAMP>`-j <VAR>field</VAR>'</SAMP>
+<DD>Equivalent to <SAMP>`-1 <VAR>field</VAR> -2 <VAR>field</VAR>'</SAMP>.
+<P>
+
+<DT><SAMP>`-o <VAR>field-list</VAR><small>...</small>'</SAMP>
+<DD>Construct each output line according to the format in <VAR>field-list</VAR>.
+Each element in <VAR>field-list</VAR> is either the single character <SAMP>`0'</SAMP> or
+has the form <VAR>m.n</VAR> where the file number, <VAR>m</VAR>, is <SAMP>`1'</SAMP> or
+<SAMP>`2'</SAMP> and <VAR>n</VAR> is a positive field number.
+<P>
+
+A field specification of <SAMP>`0'</SAMP> denotes the join field.
+In most cases, the functionality of the <SAMP>`0'</SAMP> field spec
+may be reproduced using the explicit <VAR>m.n</VAR> that corresponds
+to the join field.  However, when printing unpairable lines
+(using either of the <SAMP>`-a'</SAMP> or <SAMP>`-v'</SAMP> options), there is no way
+to specify the join field using <VAR>m.n</VAR> in <VAR>field-list</VAR>
+if there are unpairable lines in both files.
+To give <CODE>join</CODE> that functionality, POSIX invented the <SAMP>`0'</SAMP>
+field specification notation.
+</P><P>
+
+The elements in <VAR>field-list</VAR>
+are separated by commas or blanks.  Multiple <VAR>field-list</VAR>
+arguments can be given after a single <SAMP>`-o'</SAMP> option; the values
+of all lists given with <SAMP>`-o'</SAMP> are concatenated together.
+All output lines -- including those printed because of any -a or -v
+option -- are subject to the specified <VAR>field-list</VAR>.
+</P><P>
+
+<DT><SAMP>`-t <VAR>char</VAR>'</SAMP>
+<DD>Use character <VAR>char</VAR> as the input and output field separator.
+<P>
+
+<DT><SAMP>`-v <VAR>file-number</VAR>'</SAMP>
+<DD>Print a line for each unpairable line in file <VAR>file-number</VAR>
+(either <SAMP>`1'</SAMP> or <SAMP>`2'</SAMP>), instead of the normal output.
+<P>
+
+</DL>
+<P>
+
+In addition, when GNU <CODE>join</CODE> is invoked with exactly one argument,
+options <SAMP>`--help'</SAMP> and <SAMP>`--version'</SAMP> are recognized.  See section <A HREF="textutils_2.html#SEC2">2. Common options</A>.
+</P><P>
+
+<A NAME="Operating on characters"></A>
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_35.html#SEC35"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_37.html#SEC37"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_33.html#SEC33"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_33.html#SEC33"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_37.html#SEC37"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_53.html#SEC53">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+by <I>Paul Visscher</I> on <I>December, 28  2000</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

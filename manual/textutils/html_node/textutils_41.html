@@ -1,0 +1,125 @@
+<HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on December, 28  2000 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<TITLE>GNU text utilities: Squeezing</TITLE>
+
+<META NAME="description" CONTENT="GNU text utilities: Squeezing">
+<META NAME="keywords" CONTENT="GNU text utilities: Squeezing">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+</HEAD>
+
+<BODY LANG="EN" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC41"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_40.html#SEC40"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_42.html#SEC42"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_42.html#SEC42"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_38.html#SEC38"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_43.html#SEC43"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_53.html#SEC53">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 9.1.3 Squeezing repeats and deleting </H3>
+<!--docid::SEC41::-->
+<P>
+
+<A NAME="IDX441"></A>
+<A NAME="IDX442"></A>
+</P><P>
+
+When given just the <SAMP>`--delete'</SAMP> (<SAMP>`-d'</SAMP>) option, <CODE>tr</CODE>
+removes any input characters that are in <VAR>set1</VAR>.
+</P><P>
+
+When given just the <SAMP>`--squeeze-repeats'</SAMP> (<SAMP>`-s'</SAMP>) option,
+<CODE>tr</CODE> replaces each input sequence of a repeated character that
+is in <VAR>set1</VAR> with a single occurrence of that character.
+</P><P>
+
+When given both <SAMP>`--delete'</SAMP> and <SAMP>`--squeeze-repeats'</SAMP>, <CODE>tr</CODE>
+first performs any deletions using <VAR>set1</VAR>, then squeezes repeats
+from any remaining characters using <VAR>set2</VAR>.
+</P><P>
+
+The <SAMP>`--squeeze-repeats'</SAMP> option may also be used when translating,
+in which case <CODE>tr</CODE> first performs translation, then squeezes
+repeats from any remaining characters using <VAR>set2</VAR>.
+</P><P>
+
+Here are some examples to illustrate various combinations of options:
+</P><P>
+
+<UL>
+
+<LI>
+Remove all zero bytes:
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>tr -d '\000'
+</pre></td></tr></table></P><P>
+
+<LI>
+Put all words on lines by themselves.  This converts all
+non-alphanumeric characters to newlines, then squeezes each string
+of repeated newlines into a single newline:
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>tr -cs 'a-zA-Z0-9' '[\n*]'
+</pre></td></tr></table></P><P>
+
+<LI>
+Convert each sequence of repeated newlines to a single newline:
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>tr -s '\n'
+</pre></td></tr></table></P><P>
+
+<LI>
+Find doubled occurrences of words in a document.
+For example, people often write "the the" with the duplicated words
+separated by a newline.  The bourne shell script below works first
+by converting each sequence of punctuation and blank characters to a
+single newline.  That puts each "word" on a line by itself.
+Next it maps all uppercase characters to lower case, and finally it
+runs <CODE>uniq</CODE> with the <SAMP>`-d'</SAMP> option to print out only the words
+that were adjacent duplicates.
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>#!/bin/sh
+cat "$@" \
+  | tr -s '[:punct:][:blank:]' '\n' \
+  | tr '[:upper:]' '[:lower:]' \
+  | uniq -d
+</pre></td></tr></table></P><P>
+
+</UL>
+<P>
+
+<A NAME="Warnings in tr"></A>
+<HR SIZE=1>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+by <I>Paul Visscher</I> on <I>December, 28  2000</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

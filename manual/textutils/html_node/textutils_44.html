@@ -1,0 +1,103 @@
+<HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on December, 28  2000 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<TITLE>GNU text utilities: unexpand invocation</TITLE>
+
+<META NAME="description" CONTENT="GNU text utilities: unexpand invocation">
+<META NAME="keywords" CONTENT="GNU text utilities: unexpand invocation">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+</HEAD>
+
+<BODY LANG="EN" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC44"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_43.html#SEC43"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_45.html#SEC45"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_37.html#SEC37"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_45.html#SEC45"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_53.html#SEC53">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="textutils_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H2> 9.3 <CODE>unexpand</CODE>: Convert spaces to tabs </H2>
+<!--docid::SEC44::-->
+<P>
+
+<A NAME="IDX454"></A>
+</P><P>
+
+<CODE>unexpand</CODE> writes the contents of each given <VAR>file</VAR>, or
+standard input if none are given or for a <VAR>file</VAR> of <SAMP>`-'</SAMP>, to
+standard output, with strings of two or more space or tab characters
+converted to as many tabs as possible followed by as many spaces as are
+needed.  Synopsis:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>unexpand [<VAR>option</VAR>]<small>...</small> [<VAR>file</VAR>]<small>...</small>
+</pre></td></tr></table></P><P>
+
+By default, <CODE>unexpand</CODE> converts only initial spaces and tabs (those
+that precede all non space or tab characters) on each line.  It
+preserves backspace characters in the output; they decrement the column
+count for tab calculations.  By default, tabs are set at every 8th
+column.
+</P><P>
+
+The program accepts the following options.  Also see <A HREF="textutils_2.html#SEC2">2. Common options</A>.
+</P><P>
+
+<DL COMPACT>
+
+<DT><SAMP>`-<VAR>tab1</VAR>[,<VAR>tab2</VAR>]<small>...</small>'</SAMP>
+<DD><DT><SAMP>`-t <VAR>tab1</VAR>[,<VAR>tab2</VAR>]<small>...</small>'</SAMP>
+<DD><DT><SAMP>`--tabs=<VAR>tab1</VAR>[,<VAR>tab2</VAR>]<small>...</small>'</SAMP>
+<DD><A NAME="IDX455"></A>
+<A NAME="IDX456"></A>
+<A NAME="IDX457"></A>
+If only one tab stop is given, set the tabs <VAR>tab1</VAR> spaces apart
+instead of the default 8.  Otherwise, set the tabs at columns
+<VAR>tab1</VAR>, <VAR>tab2</VAR>, <small>...</small> (numbered from 0), and leave spaces and
+tabs beyond the tabstops given unchanged.  If the tabstops are specified
+with the <SAMP>`-t'</SAMP> or <SAMP>`--tabs'</SAMP> option, they can be separated by
+blanks as well as by commas.  This option implies the <SAMP>`-a'</SAMP> option.
+<P>
+
+<DT><SAMP>`-a'</SAMP>
+<DD><DT><SAMP>`--all'</SAMP>
+<DD><A NAME="IDX458"></A>
+<A NAME="IDX459"></A>
+Convert all strings of two or more spaces or tabs, not just initial
+ones, to tabs.
+<P>
+
+</DL>
+<P>
+
+<A NAME="Opening the software toolbox"></A>
+<HR SIZE=1>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+by <I>Paul Visscher</I> on <I>December, 28  2000</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>
